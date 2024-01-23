@@ -2,9 +2,9 @@
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
-### [View slides in HTML](https://envx-resources.github.io/ENVX1002-Lecture-Template/#/title-slide)
+### [View slides in HTML]([https://envx-resources.github.io/ENVX1002-Lecture-Template/#/title-slide](https://github.com/ENVX-resources/ENVX1002-2024-Lecture-Topic03/blob/main/ENVX1002-2024-Lecture-Topic03.html))
 
-**Topic X: Slide title here** | Semester 1, 2024
+**Topic 3: Discrete Distributions** | Semester 1, 2024
 
 ### License and attribution
 
