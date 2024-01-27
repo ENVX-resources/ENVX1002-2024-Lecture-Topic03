@@ -38,15 +38,17 @@ At the end of this topic students should able to:
 
 
 
-# types of data
+# Types of data
 
-**Remember**
+**Remember the types of data**
 
 **Numerical**
+
 - Continuous:  yield, weight
 - Discrete:  weeds per $m^2$
 
 **Categorical**
+
 - Binary:  2 mutually exclusive categories 
 - Ordinal:  categories ranked in order 
 - Nominal:  qualitative data
@@ -56,16 +58,25 @@ At the end of this topic students should able to:
 
 # Example
 
-- We have 5 insects which we spray with an insecticide, each insect has a 60% chance of being killed
+:::: {.columns}
+::: {.column width="50%"}
+- We have 5 insects which we spray with an insecticide, each insect has a 60% chance of being killed;
 - $P(K) = 0.6$
 - Possible questions:
   - What is the probability that all 5 insects will be killed?
   - What is the probability that at least 3 insects will be killed?
-- The data is ‘binary’ so we should use a binomial (discrete) distribution
+- The data is ‘binary’ and the events are mutually exclusive (either dead or alive unless it is zombie fly);
+  - we can say the data is categorical or numeric discrete 
+  - we can use a binomial (discrete) distribution to "model" the data.
 
-![](images/L3_Fly.jpg)
+:::
+::: {.column width="50%"}
 
+![Generated using DALL.E3](images/L3_zombie_fly.png){width=80%}
 
+:::
+
+::::
 
 
 
@@ -146,6 +157,8 @@ $\Sigma_{i=0}^5P(X=i)=0.01024+0.0768+0.2304+0.3456+0.2592+0.07776=1$
   
   
 # Example
+:::: {.columns}
+::: {.column width="50%"}
 
 - How many combinations are there for exactly 2 flies to die out of 5 flies?
 
@@ -157,6 +170,10 @@ $P(X=x)={n\choose{x}}p^x(1-p)^{n-x}={5\choose{2}}0.6^2(1-0.6)^{5-2}$
 
 $=10×0.36×0.064=0.2304$
 
+:::
+
+::: {.column width="50%"}
+
 ![](images/R_logo.jpg) - `dbinom(2,5,0.6)`
 
 ```{r}
@@ -165,7 +182,8 @@ dbinom(2,5,0.6)
 
 ![](images/Excel_logo.jpg) - `=BINOM.DIST(2,5,0.6,FALSE)`
 
-
+:::
+::::
 
 
 
@@ -236,6 +254,8 @@ pbinom(1,5,0.6, lower.tail = FALSE)
 
 # Interval
 
+$P(2 \le X \le 4)$
+
 ![](images/R_logo.jpg)
 
 ```{r}
@@ -275,6 +295,13 @@ $=5\times{0.6}(1-0.6)=1.2$ with a variance of 1.2 flies
 ::: {.column width="50%"}
 - Often we are interested in count data such as the number of events occurring in an interval;
 - We generally model this data using the Poisson distribution (Described by Simeon-Denis Poisson) where we use $\lambda$ denotes the average number of events occurring in an interval
+
+![](images/L3_Count.jpg) 
+
+:::
+
+::: {.column width="50%"}
+
 - We often write this as 
 
 $X\sim{Po(\lambda)}$
@@ -283,10 +310,8 @@ $X\sim{Po(\lambda)}$
   - e.g. number of plants of a certain species along transect
   - e.g. occurrence of disease in a period of time
 
-:::
 
-::: {.column width="50%"}
-![](images/L3_Count.jpg) 
+
 :::
 
 ::::
@@ -301,7 +326,7 @@ $X\sim{Po(\lambda)}$
 ```{r}
 library(knitr)
 kick <- read.csv("data/Kick_deaths.csv")
-kable(kick)
+kable(kick[1:12,])
 ```
 
 
@@ -468,15 +493,17 @@ dpois(1,0.7)
 
 # Interesting results with the binomial and Poisson distributions
 
-:::: {.columns}
-::: {.column width="50%"}
-
 - For large $n$ and small p the Binomial distribution $X\sim{Bin(n,p)}$ can be approximated by the Poisson distribution $Y\sim{Po(\lambda{=np})}$
   - The general rule is if $n>20$ and $np<5$
 - We often say that the Poisson Distribution models rare events
 
-:::
 
+
+
+
+# Interesting results with the binomial and Poisson distributions
+
+:::: {.columns}
 ::: {.column width="50%"}
 
 ```{r}
@@ -498,7 +525,7 @@ data_pois <- data.frame(x = x, probability = dpois(x, lambda), Distribution = "P
 data_combined <- rbind(data_binom, data_pois)
 
 # Create the plot
-ggplot(data_combined, aes(x = factor(x), y = probability, fill = Distribution)) +
+p <- ggplot(data_combined, aes(x = factor(x), y = probability, fill = Distribution)) +
     geom_bar(stat = "identity", position = position_dodge()) +
     ggtitle("Binomial vs Poisson Distribution") +
     xlab("Number of successes") +
@@ -508,9 +535,14 @@ ggplot(data_combined, aes(x = factor(x), y = probability, fill = Distribution)) 
     scale_x_discrete(breaks = seq(0, n, by = 10))  # Display every 10th label
 ```
 
+:::
+::: {.column width="50%"}
+
+```{r}
+print(p)
+```
 
 :::
-
 ::::
 
 # Further reading
