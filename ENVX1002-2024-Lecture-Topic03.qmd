@@ -296,7 +296,7 @@ $=5\times{0.6}(1-0.6)=1.2$ with a variance of 1.2 flies
 - Often we are interested in count data such as the number of events occurring in an interval;
 - We generally model this data using the Poisson distribution (Described by Simeon-Denis Poisson) where we use $\lambda$ denotes the average number of events occurring in an interval
 
-![](images/L3_Count.jpg) 
+![Source: https://sharemylesson.com/teaching-resource/sesame-street-song-count-253315](images/L3_Count.png) 
 
 :::
 
