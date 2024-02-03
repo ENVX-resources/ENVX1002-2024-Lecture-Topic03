@@ -565,5 +565,9 @@ print(p)
 This presentation is based on the [SOLES Quarto reveal.js template](https://github.com/usyd-soles-edu/soles-revealjs) and is licensed under a [Creative Commons Attribution 4.0 International License][cc-by].
 
 
+```{r, echo = FALSE}
+renderthis::to_pdf("ENVX1002-2024-Lecture-Topic03.html")
+```
+
 <!-- Links -->
 [cc-by]: http://creativecommons.org/licenses/by/4.0/
