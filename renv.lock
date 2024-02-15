@@ -1076,7 +1076,11 @@
       "RemoteUsername": "rstudio",
       "RemoteRepo": "renv",
       "RemoteRef": "main",
-      "RemoteSha": "4146b070d0749ec87a35d2f037e4d59cd8fe5894"
+      "RemoteSha": "736a0c2736457b0f12c085798026b034dbbf5189",
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "fa1b273b06e11ee02335c331d58ceb5f"
     },
     "reprex": {
       "Package": "reprex",
